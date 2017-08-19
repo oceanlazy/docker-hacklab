@@ -3,7 +3,7 @@ FROM library/debian
 RUN apt-get update && apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncurses5-dev  libncursesw5-dev xz-utils tk-dev libtimedate-perl libnet-ssleay-perl make wget unzip
 RUN wget https://www.python.org/ftp/python/3.6.0/Python-3.6.0.tgz -P /tmp/python36-dist
 RUN tar xzf /tmp/python36-dist/Python-3.6.0.tgz -C /usr/src
-RUN cd /usr/src/Python-3.6.0 && ./configure && make altinstall
+RUN cd /usr/src/Python-3.6.0 && ./configure && make install
 RUN wget https://github.com/sullo/nikto/archive/master.zip -P /tmp/nikto-dist
 RUN cd /tmp/nikto-dist && unzip master.zip && mv nikto-master /opt/nikto
 RUN echo "EXECDIR=/opt/nikto/program" >> /opt/nikto/program/nikto.conf
